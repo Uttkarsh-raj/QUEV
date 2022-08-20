@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:quev/screens/google_signin.dart';
+import 'package:quev/screens/home_screen.dart';
 
-class Welcome extends StatelessWidget {
+class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
 
+  @override
+  State<Welcome> createState() => _WelcomeState();
+}
+
+class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +25,7 @@ class Welcome extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 50),
-      
+
                 //Image
                 Image.asset(
                   'assets/images/party.png',
@@ -26,7 +33,7 @@ class Welcome extends StatelessWidget {
                   height: 325,
                 ),
                 const SizedBox(height: 15),
-      
+
                 //WELCOME
                 const Text(
                   'Welcome to QUEV',
@@ -36,9 +43,9 @@ class Welcome extends StatelessWidget {
                     fontSize: 28,
                   ),
                 ),
-      
+
                 const SizedBox(height: 5),
-      
+
                 //Small Text
                 const Text(
                   'We are happy to have you \n here.',
@@ -48,9 +55,9 @@ class Welcome extends StatelessWidget {
                     fontSize: 14,
                   ),
                 ),
-      
+
                 const SizedBox(height: 49),
-      
+
                 //QUEV
                 Opacity(
                   opacity: 0.175,
@@ -60,27 +67,35 @@ class Welcome extends StatelessWidget {
                     width: 400,
                   ),
                 ),
-      
+
                 const SizedBox(height: 41),
-      
+
                 //Sign In Button
-                Container(
-                  height: 60,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'Sign In',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
+                GestureDetector(
+                  onTap: (() async {
+                    await FirebaseServices().signInWIthGoogle();
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  }),
+                  child: Container(
+                    height: 60,
+                    width: 200,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Sign In',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
                       ),
                     ),
                   ),
-                )
+                ),
+                const SizedBox(height: 50),
               ],
             ),
           ),
