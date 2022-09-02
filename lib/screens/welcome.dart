@@ -5,6 +5,7 @@ import 'package:quev/login_controller.dart';
 import 'package:quev/screens/google_signin.dart';
 import 'package:quev/screens/home_screen.dart';
 import 'package:quev/screens/profile_page.dart';
+import '../google_maps/main.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -20,6 +21,8 @@ class _WelcomeState extends State<Welcome> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/bg.png'),
@@ -73,7 +76,7 @@ class _WelcomeState extends State<Welcome> {
                   ),
                 ),
 
-                const SizedBox(height: 41),
+                const SizedBox(height: 22),
 
                 //Sign In Button
                 GestureDetector(
@@ -84,10 +87,8 @@ class _WelcomeState extends State<Welcome> {
                   // }),
                   onTap: () async {
                     await GoogleSignIn().signIn();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomePage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const MyApp()));
                     // if (controller.googleAccount.value != null) {
                     //   Navigator.push(
                     //       context,
@@ -118,7 +119,6 @@ class _WelcomeState extends State<Welcome> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 50),
               ],
             ),
           ),
