@@ -1,10 +1,38 @@
-import 'dart:ui';
-
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        Alignment,
+        AssetImage,
+        BoxDecoration,
+        BoxFit,
+        BuildContext,
+        Center,
+        Color,
+        Container,
+        Curves,
+        DecorationImage,
+        EdgeInsets,
+        GestureDetector,
+        Key,
+        MainAxisAlignment,
+        MaterialPageRoute,
+        MediaQuery,
+        Navigator,
+        PageController,
+        PageView,
+        Row,
+        Scaffold,
+        Stack,
+        State,
+        StatefulWidget,
+        Text,
+        TextStyle,
+        Widget;
 import 'package:quev/screens/onboarding_1.dart';
 import 'package:quev/screens/onboarding_2.dart';
 import 'package:quev/screens/welcome.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'onboarding_0.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({Key? key}) : super(key: key);
@@ -24,6 +52,8 @@ class _OnBoardingState extends State<OnBoarding> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/bg.png'),
@@ -36,11 +66,12 @@ class _OnBoardingState extends State<OnBoarding> {
             PageView(
               onPageChanged: (index) {
                 setState(() {
-                  onLastPage = (index == 1);
+                  onLastPage = (index == 2);
                 });
               },
               controller: _controller,
               children: const [
+                OnBoard0(),
                 OnBoard1(),
                 OnBoard2(),
               ],
@@ -49,7 +80,7 @@ class _OnBoardingState extends State<OnBoarding> {
             //DOT INDICATOR
             Container(
               alignment: const Alignment(0.0, 0.55),
-              child: SmoothPageIndicator(controller: _controller, count: 2),
+              child: SmoothPageIndicator(controller: _controller, count: 3),
             ), //controller is the count of the page we are att and count is the maximum number of pages
 
             //Navigate
@@ -62,7 +93,7 @@ class _OnBoardingState extends State<OnBoarding> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        _controller.jumpToPage(1);
+                        _controller.jumpToPage(2);
                       },
                       child: const Text(
                         'Skip',

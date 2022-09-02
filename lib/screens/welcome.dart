@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:quev/login_controller.dart';
 import 'package:quev/screens/google_signin.dart';
 import 'package:quev/screens/home_screen.dart';
+import 'package:quev/screens/profile_page.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -10,6 +14,7 @@ class Welcome extends StatefulWidget {
 }
 
 class _WelcomeState extends State<Welcome> {
+  final controller = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,11 +77,29 @@ class _WelcomeState extends State<Welcome> {
 
                 //Sign In Button
                 GestureDetector(
-                  onTap: (() async {
-                    await FirebaseServices().signInWIthGoogle();
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomePage()));
-                  }),
+                  // onTap: (() async {
+                  //   await FirebaseServices().signInWIthGoogle();
+                  //   Navigator.push(context,
+                  //       MaterialPageRoute(builder: (context) => HomePage()));
+                  // }),
+                  onTap: () async {
+                    await GoogleSignIn().signIn();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage()));
+                    // if (controller.googleAccount.value != null) {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => const ProfilePage()));
+                    // } else {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => const Welcome()));
+                    // }
+                  },
                   child: Container(
                     height: 60,
                     width: 200,

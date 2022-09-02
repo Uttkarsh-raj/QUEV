@@ -40,6 +40,17 @@ dependencies:
   firebase_analytics: ^9.3.0
   google_sign_in: ^5.4.1
   smooth_page_indicator: ^1.0.0+2
+  get_it: ^7.2.0
+  shared_preferences: ^2.0.15
+  get: ^4.6.5
+#   flutter_launcher_icons: ^0.9.2
+
+# flutter_icons:
+#   android: "launcher_icon"
+#   ios: true
+#   image_path: "assets/images/logo.jpg" 
+#   adaptive_icon_foreground: "assets/images/QUEV.png"
+#   adaptive_icon_background: "assets/images/bg.png"
 
 dev_dependencies:
   flutter_test:
