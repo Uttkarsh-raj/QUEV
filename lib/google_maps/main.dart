@@ -321,7 +321,7 @@ class _MyAppState extends State<MyApp> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 80, 0, 0),
                       child: SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.15,
+                        height: 100,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
@@ -427,7 +427,7 @@ class _StationBoxState extends State<StationBox> {
                       ]),
             borderRadius: BorderRadius.circular(10)),
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(18),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -455,15 +455,19 @@ class _StationBoxState extends State<StationBox> {
                       style: TextStyle(
                           fontSize: 12,
                           color: inUse ? Colors.blue : Colors.white),
-                      maxLines: 2,
+                      overflow: TextOverflow.fade,
+                      softWrap: false,
+                      maxLines: 1,
                     ),
                   ],
                 ),
               ),
-              SizedBox(
-                width: 8,
-              ),
-              Image.asset('assets/images/charging-station.png')
+              SizedBox(width: 8),
+              Container(
+                padding: EdgeInsets.all(2),
+                height: 60,
+                child: Image.asset('assets/images/charging-station.png'),
+              )
             ],
           ),
         ),

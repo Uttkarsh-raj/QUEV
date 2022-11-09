@@ -31,8 +31,9 @@ class _WelcomeState extends State<Welcome> {
           ),
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const SizedBox(height: 50),
+                // const SizedBox(height: 50),
 
                 //Image
                 Image.asset(
@@ -40,31 +41,34 @@ class _WelcomeState extends State<Welcome> {
                   width: 325,
                   height: 325,
                 ),
-                const SizedBox(height: 15),
+                // const SizedBox(height: 15),
 
                 //WELCOME
-                const Text(
-                  'Welcome to QUEV',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: Color.fromARGB(255, 232, 231, 231),
-                    fontSize: 28,
-                  ),
+                Column(
+                  children: const [
+                    Text(
+                      'Welcome to QUEV',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Color.fromARGB(255, 232, 231, 231),
+                        fontSize: 28,
+                      ),
+                    ),
+                    // SizedBox(height: 5),
+
+                    //Small Text
+                    Text(
+                      'We are happy to have you \n here.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 169, 169, 169),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
                 ),
 
-                const SizedBox(height: 5),
-
-                //Small Text
-                const Text(
-                  'We are happy to have you \n here.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 169, 169, 169),
-                    fontSize: 14,
-                  ),
-                ),
-
-                const SizedBox(height: 49),
+                // const SizedBox(height: 49),
 
                 //QUEV
                 Opacity(
@@ -76,7 +80,7 @@ class _WelcomeState extends State<Welcome> {
                   ),
                 ),
 
-                const SizedBox(height: 22),
+                // const SizedBox(height: 22),
 
                 //Sign In Button
                 GestureDetector(
