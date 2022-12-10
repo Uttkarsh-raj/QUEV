@@ -101,9 +101,9 @@ samples, guidance on mobile development, and a full API reference.
 
 _Below is an example of how you can instruct your audience on installing and setting up your app.This template doesn't rely on any external dependencies or services._
 
-1.Clone the repo '''sh git clone https://github.com/your_username_/Project-Name.git '''
+1.Clone the repo '''git clone https://github.com/your_username_/Project-Name.git'''
 
-2.Install the packages '''sh flutter pub get '''
+2.Install the packages '''flutter pub get'''
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
